@@ -8,7 +8,7 @@ def pipelineMetadata = [
     testCategory: 'functional',
     testType: 'rpminspect',
     maintainer: 'Fedora CI',
-    docs: 'https://github.com/rpminspect/rpminspect',
+    docs: 'https://github.com/rpminspect/rpminspect#rpminspect',
     contact: [
         irc: '#fedora-ci',
         email: 'ci@lists.fedoraproject.org'
