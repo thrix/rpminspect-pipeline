@@ -1,0 +1,89 @@
+summary: TMT/FMF plan for running rpminspect.
+
+discover:
+    how: shell
+    tests:
+    - name: license
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID license
+    - name: emptyrpm
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID emptyrpm
+    - name: lostpayload
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID lostpayload
+    - name: metadata
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID metadata
+    - name: manpage
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID manpage
+    - name: xml
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID xml
+    - name: elf
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID elf
+    - name: desktop
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID desktop
+    - name: disttag
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID disttag
+    - name: specname
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID specname
+    - name: modularity
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID modularity
+    - name: javabytecode
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID javabytecode
+    - name: changedfiles
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID changedfiles
+    - name: removedfiles
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID removedfiles
+    - name: addedfiles
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID addedfiles
+    - name: upstream
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID upstream
+    - name: ownership
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID ownership
+    - name: shellsyntax
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID shellsyntax
+    - name: annocheck
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID annocheck
+    - name: DT_NEEDED
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID DT_NEEDED
+    - name: filesize
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID filesize
+    - name: permissions
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID permissions
+    - name: capabilities
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID capabilities
+    - name: kmod
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID kmod
+    - name: arch
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID arch
+    - name: subpackages
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID subpackages
+    - name: changelog
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID changelog
+    - name: pathmigration
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID pathmigration
+    - name: LTO
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID LTO
+    - name: symlinks
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID symlinks
+
+
+description: |
+    Runs rpminspect tests from Fedora CI - https://github.com/fedora-ci/rpminspect-pipeline.
+
+provision:
+    how: container
+    # the image comes from https://github.com/fedora-ci/rpminspect-image
+    image: quay.io/fedoraci/rpminspect:7586f44
+
+prepare:
+    how: shell
+    script: |
+        if [ -z "$RELEASE_ID" ]; then
+            echo "RELEASE_ID not specified"
+            exit 1
+        fi
+        if [ -z "$TASK_ID" ]; then
+            echo "TASK_ID not specified"
+            exit 1
+        fi
+
+execute:
+    how: shell
