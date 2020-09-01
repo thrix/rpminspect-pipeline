@@ -5,7 +5,7 @@
 def pipelineMetadata = [
     pipelineName: 'rpminspect',
     pipelineDescription: 'Run rpminspect on RPM builds',
-    testCategory: 'functional',
+    testCategory: 'static-analysis',
     testType: 'rpminspect',
     maintainer: 'Fedora CI',
     docs: 'https://github.com/rpminspect/rpminspect#rpminspect',
