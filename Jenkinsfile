@@ -75,6 +75,7 @@ pipeline {
                             ]
                         }
                     """
+                    echo "${requestPayload}"
                     def response = submitTestingFarmRequest(payload: requestPayload)
                     testingFarmRequestId = response['id']
                 }
