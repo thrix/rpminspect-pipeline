@@ -31,6 +31,8 @@ discover:
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID changedfiles
     - name: removedfiles
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID removedfiles
+    - name: movedfiles
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID movedfiles
     - name: addedfiles
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID addedfiles
     - name: upstream
@@ -41,8 +43,8 @@ discover:
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID shellsyntax
     - name: annocheck
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID annocheck
-    - name: DT_NEEDED
-      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID DT_NEEDED
+    - name: dsodeps
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID dsodeps
     - name: filesize
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID filesize
     - name: permissions
@@ -59,10 +61,26 @@ discover:
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID changelog
     - name: pathmigration
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID pathmigration
-    - name: LTO
-      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID LTO
+    - name: lto
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID lto
     - name: symlinks
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID symlinks
+    - name: files
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID files
+    - name: abidiff
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID abidiff
+    - name: kmidiff
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID kmidiff
+    - name: config
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID config
+    - name: doc
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID doc
+    - name: patches
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID patches
+    - name: virus
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID virus
+    - name: politics
+      test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID politics
 
 
 description: |
