@@ -5,82 +5,121 @@ discover:
     tests:
     - name: license
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID license
+      duration: 20m
     - name: emptyrpm
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID emptyrpm
+      duration: 20m
     - name: lostpayload
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID lostpayload
+      duration: 20m
     - name: metadata
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID metadata
+      duration: 20m
     - name: manpage
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID manpage
+      duration: 20m
     - name: xml
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID xml
+      duration: 20m
     - name: elf
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID elf
+      duration: 20m
     - name: desktop
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID desktop
+      duration: 20m
     - name: disttag
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID disttag
+      duration: 20m
     - name: specname
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID specname
+      duration: 20m
     - name: modularity
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID modularity
+      duration: 20m
     - name: javabytecode
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID javabytecode
+      duration: 20m
     - name: changedfiles
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID changedfiles
+      duration: 20m
     - name: removedfiles
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID removedfiles
+      duration: 20m
     - name: movedfiles
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID movedfiles
+      duration: 20m
     - name: addedfiles
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID addedfiles
+      duration: 20m
     - name: upstream
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID upstream
+      duration: 20m
     - name: ownership
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID ownership
+      duration: 20m
     - name: shellsyntax
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID shellsyntax
+      duration: 20m
     - name: annocheck
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID annocheck
+      duration: 20m
     - name: dsodeps
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID dsodeps
+      duration: 20m
     - name: filesize
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID filesize
+      duration: 20m
     - name: permissions
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID permissions
+      duration: 20m
     - name: capabilities
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID capabilities
+      duration: 20m
     - name: kmod
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID kmod
+      duration: 20m
     - name: arch
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID arch
+      duration: 20m
     - name: subpackages
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID subpackages
+      duration: 20m
     - name: changelog
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID changelog
+      duration: 20m
     - name: pathmigration
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID pathmigration
+      duration: 20m
     - name: lto
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID lto
+      duration: 20m
     - name: symlinks
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID symlinks
+      duration: 20m
     - name: files
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID files
+      duration: 20m
     - name: abidiff
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID abidiff
+      duration: 20m
     - name: kmidiff
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID kmidiff
+      duration: 20m
     - name: config
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID config
+      duration: 20m
     - name: doc
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID doc
+      duration: 20m
     - name: patches
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID patches
+      duration: 20m
     - name: virus
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID virus
+      duration: 20m
     - name: politics
       test: /rpminspect_runner/rpminspect_runner.sh $TASK_ID $RELEASE_ID politics
+      duration: 20m
 
 
 description: |
