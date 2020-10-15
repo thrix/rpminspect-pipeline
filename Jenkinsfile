@@ -69,7 +69,8 @@ pipeline {
                                     "arch": "x86_64",
                                     "variables": {
                                         "RELEASE_ID": "${getReleaseIdFromBranch()}",
-                                        "TASK_ID": "${getIdFromArtifactId(artifactId: artifactId)}"
+                                        "TASK_ID": "${getIdFromArtifactId(artifactId: artifactId)}",
+                                        "DEFAULT_RELEASE_STRING": "fc34"
                                     }
                                 }
                             ]
