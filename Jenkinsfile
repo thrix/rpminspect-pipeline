@@ -22,7 +22,7 @@ def xunit
 
 pipeline {
 
-    agent { label 'master' }
+    agent { label 'rpminspect' }
 
     options {
         buildDiscarder(logRotator(daysToKeepStr: '45', artifactNumToKeepStr: '100'))
