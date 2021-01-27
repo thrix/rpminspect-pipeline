@@ -145,6 +145,25 @@ prepare:
             echo "DEFAULT_RELEASE_STRING not specified"
             exit 1
         fi
+        if [ -z "$REPOSITORY_URL" ]; then
+            echo "REPOSITORY_URL not specified"
+            exit 1
+        fi
+        if [ -z "$GIT_COMMIT" ]; then
+            echo "GIT_COMMIT not specified"
+            exit 1
+        fi
+
+        tmp_dir=$(mktemp -d -t rpminspect-XXXXXXXXXX)
+        pushd ${tmp_dir}
+            git init
+            git remote add origin ${REPOSITORY_URL}
+            git fetch origin
+            git checkout ${GIT_COMMIT}
+        popd
+
+        cp ${tmp_dir}/rpminspect.yaml . || :
+        rm -Rf ${tmp_dir}
 
 execute:
     how: shell

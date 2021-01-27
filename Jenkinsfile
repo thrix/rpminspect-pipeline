@@ -18,6 +18,7 @@ def artifactId
 def testingFarmRequestId
 def testingFarmResult
 def xunit
+def repoUrlAndRef
 
 def podYAML = """
 spec:
@@ -56,6 +57,8 @@ pipeline {
                     if (!artifactId) {
                         abort('ARTIFACT_ID is missing')
                     }
+
+                    repoUrlAndRef = getRepoUrlAndRefFromTaskId(getIdFromArtifactId(artifactId: artifactId))
                 }
                 sendMessage(type: 'queued', artifactId: artifactId, pipelineMetadata: pipelineMetadata, dryRun: isPullRequest())
             }
@@ -79,7 +82,9 @@ pipeline {
                                     "variables": {
                                         "RELEASE_ID": "${getReleaseIdFromBranch()}",
                                         "TASK_ID": "${getIdFromArtifactId(artifactId: artifactId)}",
-                                        "DEFAULT_RELEASE_STRING": "fc34"
+                                        "DEFAULT_RELEASE_STRING": "fc34",
+                                        "REPOSITORY_URL": "${repoUrlAndRef.url}",
+                                        "GIT_COMMIT": "${repoUrlAndRef.ref}"
                                     }
                                 }
                             ]
