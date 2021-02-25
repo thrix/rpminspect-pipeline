@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('fedora-pipeline-library@candidate2') _
+@Library('fedora-pipeline-library@fedora-stable') _
 
 def pipelineMetadata = [
     pipelineName: 'rpminspect',
@@ -25,7 +25,7 @@ spec:
   containers:
   - name: pipeline-agent
     # source: https://github.com/fedora-ci/jenkins-pipeline-library-agent-image
-    image: quay.io/fedoraci/pipeline-library-agent:candidate
+    image: quay.io/fedoraci/pipeline-library-agent:3685422
     tty: true
     alwaysPullImage: true
 """
@@ -41,6 +41,7 @@ pipeline {
 
     parameters {
         string(name: 'ARTIFACT_ID', defaultValue: '', trim: true, description: '"koji-build:&lt;taskId&gt;" for Koji builds; Example: koji-build:46436038')
+        string(name: 'TEST_PROFILE', defaultValue: 'f35', trim: true, description: 'A name of the test profile to use; Example: f35')
     }
 
     environment {
@@ -52,7 +53,9 @@ pipeline {
             steps {
                 script {
                     artifactId = params.ARTIFACT_ID
-                    setBuildNameFromArtifactId(artifactId: artifactId)
+                    setBuildNameFromArtifactId(artifactId: artifactId, profile: params.TEST_PROFILE)
+
+                    config = loadConfig(profile: params.TEST_PROFILE)
 
                     if (!artifactId) {
                         abort('ARTIFACT_ID is missing')
@@ -80,11 +83,13 @@ pipeline {
                                 {
                                     "arch": "x86_64",
                                     "variables": {
-                                        "RELEASE_ID": "${getReleaseIdFromBranch()}",
+                                        "PREVIOUS_TAG": "${config.previous_tag}",
                                         "TASK_ID": "${getIdFromArtifactId(artifactId: artifactId)}",
-                                        "DEFAULT_RELEASE_STRING": "fc34",
+                                        "DEFAULT_RELEASE_STRING": "${config.default_release_string}",
                                         "REPOSITORY_URL": "${repoUrlAndRef.url}",
-                                        "GIT_COMMIT": "${repoUrlAndRef.ref}"
+                                        "CONFIG_BRANCH": "${config.config_branch}",
+                                        "GIT_COMMIT": "${repoUrlAndRef.ref}",
+                                        "OUTPUT_FORMAT": "${config.output_format}"
                                     }
                                 }
                             ]

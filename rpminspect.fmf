@@ -4,121 +4,172 @@ discover:
     how: shell
     tests:
     - name: license
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID license
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG license
       duration: 20m
     - name: emptyrpm
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID emptyrpm
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG emptyrpm
       duration: 20m
     - name: lostpayload
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID lostpayload
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG lostpayload
       duration: 20m
     - name: metadata
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID metadata
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG metadata
       duration: 20m
     - name: manpage
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID manpage
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG manpage
       duration: 20m
     - name: xml
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID xml
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG xml
       duration: 20m
     - name: elf
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID elf
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG elf
       duration: 20m
     - name: desktop
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID desktop
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG desktop
       duration: 20m
     - name: disttag
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID disttag
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG disttag
       duration: 20m
     - name: specname
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID specname
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG specname
       duration: 20m
     - name: modularity
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID modularity
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG modularity
       duration: 20m
     - name: javabytecode
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID javabytecode
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG javabytecode
       duration: 20m
     - name: changedfiles
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID changedfiles
-      duration: 20m
-    - name: removedfiles
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID removedfiles
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG changedfiles
       duration: 20m
     - name: movedfiles
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID movedfiles
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG movedfiles
+      duration: 20m
+    - name: removedfiles
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG removedfiles
       duration: 20m
     - name: addedfiles
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID addedfiles
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG addedfiles
       duration: 20m
     - name: upstream
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID upstream
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG upstream
       duration: 20m
     - name: ownership
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID ownership
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG ownership
       duration: 20m
     - name: shellsyntax
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID shellsyntax
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG shellsyntax
       duration: 20m
     - name: annocheck
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID annocheck
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG annocheck
       duration: 20m
     - name: dsodeps
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID dsodeps
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG dsodeps
       duration: 20m
     - name: filesize
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID filesize
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG filesize
       duration: 20m
     - name: permissions
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID permissions
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG permissions
       duration: 20m
     - name: capabilities
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID capabilities
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG capabilities
       duration: 20m
     - name: kmod
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID kmod
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG kmod
       duration: 20m
     - name: arch
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID arch
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG arch
       duration: 20m
     - name: subpackages
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID subpackages
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG subpackages
       duration: 20m
     - name: changelog
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID changelog
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG changelog
       duration: 20m
     - name: pathmigration
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID pathmigration
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG pathmigration
       duration: 20m
     - name: lto
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID lto
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG lto
       duration: 20m
     - name: symlinks
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID symlinks
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG symlinks
       duration: 20m
     - name: files
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID files
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG files
+      duration: 20m
+    - name: types
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG types
       duration: 20m
     - name: abidiff
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID abidiff
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG abidiff
       duration: 20m
     - name: kmidiff
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID kmidiff
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG kmidiff
       duration: 20m
     - name: config
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID config
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG config
       duration: 20m
     - name: doc
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID doc
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG doc
       duration: 20m
     - name: patches
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID patches
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG patches
       duration: 20m
     - name: virus
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID virus
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG virus
       duration: 20m
     - name: politics
-      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $RELEASE_ID politics
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG politics
+      duration: 20m
+    - name: badfuncs
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG badfuncs
+      duration: 20m
+    - name: runpath
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG runpath
       duration: 20m
 
 
@@ -128,17 +179,17 @@ description: |
 provision:
     how: container
     # source: https://github.com/fedora-ci/rpminspect-image
-    image: quay.io/fedoraci/rpminspect:8b2f2e7
+    image: quay.io/fedoraci/rpminspect:b594deb
 
 prepare:
     how: shell
     script: |
-        if [ -z "$RELEASE_ID" ]; then
-            echo "RELEASE_ID not specified"
-            exit 1
-        fi
         if [ -z "$TASK_ID" ]; then
             echo "TASK_ID not specified"
+            exit 1
+        fi
+        if [ -z "$PREVIOUS_TAG" ]; then
+            echo "PREVIOUS_TAG not specified"
             exit 1
         fi
         if [ -z "$DEFAULT_RELEASE_STRING" ]; then
@@ -153,17 +204,10 @@ prepare:
             echo "GIT_COMMIT not specified"
             exit 1
         fi
-
-        tmp_dir=$(mktemp -d -t rpminspect-XXXXXXXXXX)
-        pushd ${tmp_dir}
-            git init
-            git remote add origin ${REPOSITORY_URL}
-            git fetch origin
-            git checkout ${GIT_COMMIT}
-        popd
-
-        cp ${tmp_dir}/rpminspect.yaml . || :
-        rm -Rf ${tmp_dir}
+        if [ -z "$OUTPUT_FORMAT" ]; then
+            echo "OUTPUT_FORMAT not specified"
+            exit 1
+        fi
 
 execute:
-    how: shell
+    how: tmt

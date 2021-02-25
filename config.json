@@ -1,0 +1,40 @@
+{
+    "profiles": {
+        "f34": {
+            "previous_tag": "f34-updates",
+            "default_release_string": "fc34",
+            "config_branch": "f34",
+            "output_format": "text"
+        },
+        "f35": {
+            "previous_tag": "f35-updates",
+            "default_release_string": "fc35",
+            "config_branch": "main",
+            "output_format": "text"
+        },
+        "f36": {
+            "previous_tag": "f36-updates",
+            "default_release_string": "fc36",
+            "config_branch": "main",
+            "output_format": "text"
+        },
+        "f37": {
+            "previous_tag": "f37-updates",
+            "default_release_string": "fc37",
+            "config_branch": "main",
+            "output_format": "text"
+        },
+        "f38": {
+            "previous_tag": "f37-updates",
+            "default_release_string": "fc37",
+            "config_branch": "main",
+            "output_format": "text"
+        },
+        "f39": {
+            "previous_tag": "f37-updates",
+            "default_release_string": "fc37",
+            "config_branch": "main",
+            "output_format": "text"
+        }
+    }
+}
