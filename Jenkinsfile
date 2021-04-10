@@ -19,6 +19,8 @@ def testingFarmRequestId
 def testingFarmResult
 def xunit
 def repoUrlAndRef
+def pipelineRepoUrlAndRef
+def hook
 
 def podYAML = """
 spec:
@@ -32,11 +34,12 @@ spec:
 
 pipeline {
 
-    agent { label 'rpminspect' }
+    agent none
 
     options {
         buildDiscarder(logRotator(daysToKeepStr: '45', artifactNumToKeepStr: '100'))
         timeout(time: 12, unit: 'HOURS')
+        skipDefaultCheckout(true)
     }
 
     parameters {
@@ -50,11 +53,15 @@ pipeline {
 
     stages {
         stage('Prepare') {
+            agent {
+                label pipelineMetadata.pipelineName
+            }
             steps {
                 script {
                     artifactId = params.ARTIFACT_ID
                     setBuildNameFromArtifactId(artifactId: artifactId, profile: params.TEST_PROFILE)
 
+                    checkout scm
                     config = loadConfig(profile: params.TEST_PROFILE)
 
                     if (!artifactId) {
@@ -62,41 +69,42 @@ pipeline {
                     }
 
                     repoUrlAndRef = getRepoUrlAndRefFromTaskId(getIdFromArtifactId(artifactId: artifactId))
+                    pipelineRepoUrlAndRef = [url: "${getGitUrl()}", ref: "${getGitRef()}"]
                 }
                 sendMessage(type: 'queued', artifactId: artifactId, pipelineMetadata: pipelineMetadata, dryRun: isPullRequest())
             }
         }
 
         stage('Schedule Test') {
+            agent {
+                label pipelineMetadata.pipelineName
+            }
             steps {
                 script {
-                    def requestPayload = """
-                        {
-                            "api_key": "${env.TESTING_FARM_API_KEY}",
-                            "test": {
-                                "fmf": {
-                                    "url": "${getGitUrl()}",
-                                    "ref": "${getGitRef()}"
-                                }
-                            },
-                            "environments": [
-                                {
-                                    "arch": "x86_64",
-                                    "variables": {
-                                        "PREVIOUS_TAG": "${config.previous_tag}",
-                                        "TASK_ID": "${getIdFromArtifactId(artifactId: artifactId)}",
-                                        "DEFAULT_RELEASE_STRING": "${config.default_release_string}",
-                                        "REPOSITORY_URL": "${repoUrlAndRef.url}",
-                                        "CONFIG_BRANCH": "${config.config_branch}",
-                                        "GIT_COMMIT": "${repoUrlAndRef.ref}",
-                                        "OUTPUT_FORMAT": "${config.output_format}"
-                                    }
-                                }
+                    def requestPayload = [
+                        api_key: "${env.TESTING_FARM_API_KEY}",
+                        test: [
+                            fmf: pipelineRepoUrlAndRef
+                        ],
+                        environments: [
+                            [
+                                arch: "x86_64",
+                                variables: [
+                                    PREVIOUS_TAG: "${config.previous_tag}",
+                                    TASK_ID: "${getIdFromArtifactId(artifactId: artifactId)}",
+                                    DEFAULT_RELEASE_STRING: "${config.default_release_string}",
+                                    REPOSITORY_URL: "${repoUrlAndRef.url}",
+                                    CONFIG_BRANCH: "${config.config_branch}",
+                                    GIT_COMMIT: "${repoUrlAndRef.ref}",
+                                    OUTPUT_FORMAT: "${config.output_format}"
+                                ]
                             ]
-                        }
-                    """
-                    echo "${requestPayload}"
-                    def response = submitTestingFarmRequest(payload: requestPayload)
+                        ]
+                    ]
+                    hook = registerWebhook()
+                    requestPayload['notification'] = ['webhook': [url: hook.getURL()]]
+
+                    def response = submitTestingFarmRequest(payloadMap: requestPayload)
                     testingFarmRequestId = response['id']
                 }
                 sendMessage(type: 'running', artifactId: artifactId, pipelineMetadata: pipelineMetadata, dryRun: isPullRequest())
@@ -104,10 +112,12 @@ pipeline {
         }
 
         stage('Wait for Test Results') {
+            agent none
             steps {
                 script {
-                    testingFarmResult = waitForTestingFarmResults(requestId: testingFarmRequestId, timeout: 60)
-                    xunit = testingFarmResult.get('result', [:])?.get('xunit', '') ?: ''
+                    def response = waitForTestingFarm(requestId: testingFarmRequestId, hook: hook)
+                    testingFarmResult = response.apiResponse
+                    xunit = response.xunit
                 }
             }
         }
