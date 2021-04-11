@@ -9,32 +9,37 @@
         "f35": {
             "previous_tag": "f35-updates",
             "default_release_string": "fc35",
-            "config_branch": "main",
-            "output_format": "text"
+            "config_branch": "rawhide",
+            "output_format": "text",
+            "profile_name": "rawhide"
         },
         "f36": {
             "previous_tag": "f36-updates",
             "default_release_string": "fc36",
-            "config_branch": "main",
-            "output_format": "text"
+            "config_branch": "rawhide",
+            "output_format": "text",
+            "profile_name": "rawhide"
         },
         "f37": {
             "previous_tag": "f37-updates",
             "default_release_string": "fc37",
-            "config_branch": "main",
-            "output_format": "text"
+            "config_branch": "rawhide",
+            "output_format": "text",
+            "profile_name": "rawhide"
         },
         "f38": {
             "previous_tag": "f37-updates",
             "default_release_string": "fc37",
-            "config_branch": "main",
-            "output_format": "text"
+            "config_branch": "rawhide",
+            "output_format": "text",
+            "profile_name": "rawhide"
         },
         "f39": {
             "previous_tag": "f37-updates",
             "default_release_string": "fc37",
-            "config_branch": "main",
-            "output_format": "text"
+            "config_branch": "rawhide",
+            "output_format": "text",
+            "profile_name": "rawhide"
         }
     }
 }
