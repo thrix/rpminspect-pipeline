@@ -4,42 +4,49 @@
             "previous_tag": "f34-updates",
             "default_release_string": "fc34",
             "config_branch": "f34",
-            "output_format": "text"
+            "output_format": "text",
+            "profile_name": "",
+            "arches": ""
         },
         "f35": {
             "previous_tag": "f35-updates",
             "default_release_string": "fc35",
             "config_branch": "rawhide",
             "output_format": "text",
-            "profile_name": "rawhide"
+            "profile_name": "rawhide",
+            "arches": ""
         },
         "f36": {
             "previous_tag": "f36-updates",
             "default_release_string": "fc36",
             "config_branch": "rawhide",
             "output_format": "text",
-            "profile_name": "rawhide"
+            "profile_name": "rawhide",
+            "arches": ""
         },
         "f37": {
             "previous_tag": "f37-updates",
             "default_release_string": "fc37",
             "config_branch": "rawhide",
             "output_format": "text",
-            "profile_name": "rawhide"
+            "profile_name": "rawhide",
+            "arches": ""
         },
         "f38": {
             "previous_tag": "f37-updates",
             "default_release_string": "fc37",
             "config_branch": "rawhide",
             "output_format": "text",
-            "profile_name": "rawhide"
+            "profile_name": "rawhide",
+            "arches": ""
         },
         "f39": {
             "previous_tag": "f37-updates",
             "default_release_string": "fc37",
             "config_branch": "rawhide",
             "output_format": "text",
-            "profile_name": "rawhide"
+            "profile_name": "rawhide",
+            "arches": ""
         }
     }
 }

@@ -97,7 +97,9 @@ pipeline {
                                     CONFIG_BRANCH: "${config.config_branch}",
                                     GIT_COMMIT: "${repoUrlAndRef.ref}",
                                     OUTPUT_FORMAT: "${config.output_format}",
-                                    RPMINSPECT_PROFILE_NAME: "${config.profile_name}"
+                                    RPMINSPECT_PROFILE_NAME: "${config.profile_name}",
+                                    ARCHES: "${config.arches}",
+                                    DEBUG: "off"
                                 ]
                             ]
                         ]
