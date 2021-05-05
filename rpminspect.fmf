@@ -6,171 +6,173 @@ discover:
     - name: license
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG license
-      duration: 20m
+      # first test actually runs all inspections and subsequent tests
+      # just return the cached results
+      duration: 360m
     - name: emptyrpm
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG emptyrpm
-      duration: 20m
+      duration: 2m
     - name: lostpayload
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG lostpayload
-      duration: 20m
+      duration: 2m
     - name: metadata
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG metadata
-      duration: 20m
+      duration: 2m
     - name: manpage
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG manpage
-      duration: 20m
+      duration: 2m
     - name: xml
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG xml
-      duration: 20m
+      duration: 2m
     - name: elf
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG elf
-      duration: 20m
+      duration: 2m
     - name: desktop
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG desktop
-      duration: 20m
+      duration: 2m
     - name: disttag
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG disttag
-      duration: 20m
+      duration: 2m
     - name: specname
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG specname
-      duration: 20m
+      duration: 2m
     - name: modularity
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG modularity
-      duration: 20m
+      duration: 2m
     - name: javabytecode
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG javabytecode
-      duration: 20m
+      duration: 2m
     - name: changedfiles
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG changedfiles
-      duration: 20m
+      duration: 2m
     - name: movedfiles
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG movedfiles
-      duration: 20m
+      duration: 2m
     - name: removedfiles
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG removedfiles
-      duration: 20m
+      duration: 2m
     - name: addedfiles
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG addedfiles
-      duration: 20m
+      duration: 2m
     - name: upstream
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG upstream
-      duration: 20m
+      duration: 2m
     - name: ownership
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG ownership
-      duration: 20m
+      duration: 2m
     - name: shellsyntax
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG shellsyntax
-      duration: 20m
+      duration: 2m
     - name: annocheck
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG annocheck
-      duration: 20m
+      duration: 2m
     - name: dsodeps
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG dsodeps
-      duration: 20m
+      duration: 2m
     - name: filesize
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG filesize
-      duration: 20m
+      duration: 2m
     - name: permissions
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG permissions
-      duration: 20m
+      duration: 2m
     - name: capabilities
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG capabilities
-      duration: 20m
+      duration: 2m
     - name: kmod
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG kmod
-      duration: 20m
+      duration: 2m
     - name: arch
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG arch
-      duration: 20m
+      duration: 2m
     - name: subpackages
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG subpackages
-      duration: 20m
+      duration: 2m
     - name: changelog
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG changelog
-      duration: 20m
+      duration: 2m
     - name: pathmigration
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG pathmigration
-      duration: 20m
+      duration: 2m
     - name: lto
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG lto
-      duration: 20m
+      duration: 2m
     - name: symlinks
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG symlinks
-      duration: 20m
+      duration: 2m
     - name: files
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG files
-      duration: 20m
+      duration: 2m
     - name: types
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG types
-      duration: 20m
+      duration: 2m
     - name: abidiff
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG abidiff
-      duration: 20m
+      duration: 2m
     - name: kmidiff
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG kmidiff
-      duration: 20m
+      duration: 2m
     - name: config
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG config
-      duration: 20m
+      duration: 2m
     - name: doc
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG doc
-      duration: 20m
+      duration: 2m
     - name: patches
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG patches
-      duration: 20m
+      duration: 2m
     - name: virus
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG virus
-      duration: 20m
+      duration: 2m
     - name: politics
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG politics
-      duration: 20m
+      duration: 2m
     - name: badfuncs
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG badfuncs
-      duration: 20m
+      duration: 2m
     - name: runpath
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG runpath
-      duration: 20m
+      duration: 2m
 
 
 description: |
@@ -179,7 +181,7 @@ description: |
 provision:
     how: container
     # source: https://github.com/fedora-ci/rpminspect-image
-    image: quay.io/fedoraci/rpminspect:57eb2c6
+    image: quay.io/fedoraci/rpminspect:a7f4068
 
 prepare:
     how: shell
@@ -202,10 +204,6 @@ prepare:
         fi
         if [ -z "$GIT_COMMIT" ]; then
             echo "GIT_COMMIT not specified"
-            exit 1
-        fi
-        if [ -z "$OUTPUT_FORMAT" ]; then
-            echo "OUTPUT_FORMAT not specified"
             exit 1
         fi
 
