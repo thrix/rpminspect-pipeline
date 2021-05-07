@@ -42,18 +42,18 @@ pipeline {
     agent none
 
     libraries {
-        lib("fedora-pipeline-library@mapping-from-url")
+        lib("fedora-pipeline-library@${env.PIPELINE_LIBRARY_VERSION}")
     }
 
     options {
-        buildDiscarder(logRotator(daysToKeepStr: '45', artifactNumToKeepStr: '100'))
-        timeout(time: 12, unit: 'HOURS')
+        buildDiscarder(logRotator(daysToKeepStr: env.DEFAULT_DAYS_TO_KEEP_LOGS, artifactNumToKeepStr: env.DEFAULT_ARTIFACTS_TO_KEEP))
+        timeout(time: env.DEFAULT_PIPELINE_TIMEOUT_MINUTES, unit: 'MINUTES')
         skipDefaultCheckout(true)
     }
 
     parameters {
         string(name: 'ARTIFACT_ID', defaultValue: '', trim: true, description: '"koji-build:&lt;taskId&gt;" for Koji builds; Example: koji-build:46436038')
-        string(name: 'TEST_PROFILE', defaultValue: 'f35', trim: true, description: 'A name of the test profile to use; Example: f35')
+        string(name: 'TEST_PROFILE', defaultValue: env.DEFAULT_TEST_PROFILE, trim: true, description: "A name of the test profile to use; Example: ${env.DEFAULT_TEST_PROFILE}")
     }
 
     environment {
