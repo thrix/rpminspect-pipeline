@@ -6,9 +6,7 @@ discover:
     - name: license
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG license
-      # first test actually runs all inspections and subsequent tests
-      # just return the cached results
-      duration: 360m
+      duration: 600m
     - name: emptyrpm
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG emptyrpm
@@ -173,6 +171,10 @@ discover:
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG runpath
       duration: 2m
+    - name: diagnostics
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG diagnostics
+      duration: 2m
 
 
 description: |
@@ -181,7 +183,7 @@ description: |
 provision:
     how: container
     # source: https://github.com/fedora-ci/rpminspect-image
-    image: quay.io/fedoraci/rpminspect:f84957c
+    image: quay.io/fedoraci/rpminspect:f302bb6
 
 prepare:
     how: shell
