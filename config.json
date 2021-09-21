@@ -4,43 +4,37 @@
             "previous_tag": "f34-updates",
             "default_release_string": "fc34",
             "config_branch": "f34",
-            "profile_name": "",
-            "arches": ""
+            "profile_name": ""
         },
         "f35": {
             "previous_tag": "f35-updates",
             "default_release_string": "fc35",
             "config_branch": "rawhide",
-            "profile_name": "rawhide",
-            "arches": ""
+            "profile_name": "rawhide"
         },
         "f36": {
             "previous_tag": "f36-updates",
             "default_release_string": "fc36",
             "config_branch": "rawhide",
-            "profile_name": "rawhide",
-            "arches": ""
+            "profile_name": "rawhide"
         },
         "f37": {
             "previous_tag": "f37-updates",
             "default_release_string": "fc37",
             "config_branch": "rawhide",
-            "profile_name": "rawhide",
-            "arches": ""
+            "profile_name": "rawhide"
         },
         "f38": {
             "previous_tag": "f37-updates",
             "default_release_string": "fc37",
             "config_branch": "rawhide",
-            "profile_name": "rawhide",
-            "arches": ""
+            "profile_name": "rawhide"
         },
         "f39": {
             "previous_tag": "f37-updates",
             "default_release_string": "fc37",
             "config_branch": "rawhide",
-            "profile_name": "rawhide",
-            "arches": ""
+            "profile_name": "rawhide"
         }
     }
 }

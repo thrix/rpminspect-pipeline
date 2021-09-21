@@ -106,7 +106,6 @@ pipeline {
                                     CONFIG_BRANCH: "${config.config_branch}",
                                     GIT_COMMIT: "${repoUrlAndRef.ref}",
                                     RPMINSPECT_PROFILE_NAME: "${config.profile_name}",
-                                    ARCHES: "${config.arches}",
                                     DEBUG: "off"
                                 ]
                             ]
