@@ -183,7 +183,7 @@ description: |
 provision:
     how: container
     # source: https://github.com/fedora-ci/rpminspect-image
-    image: quay.io/fedoraci/rpminspect:f9af8ae
+    image: quay.io/fedoraci/rpminspect:e0c4153
 
 prepare:
     how: shell
