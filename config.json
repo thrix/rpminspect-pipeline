@@ -9,8 +9,8 @@
         "f35": {
             "previous_tag": "f35-updates",
             "default_release_string": "fc35",
-            "config_branch": "rawhide",
-            "profile_name": "rawhide"
+            "config_branch": "f35",
+            "profile_name": ""
         },
         "f36": {
             "previous_tag": "f36-updates",
@@ -25,14 +25,14 @@
             "profile_name": "rawhide"
         },
         "f38": {
-            "previous_tag": "f37-updates",
-            "default_release_string": "fc37",
+            "previous_tag": "f38-updates",
+            "default_release_string": "fc38",
             "config_branch": "rawhide",
             "profile_name": "rawhide"
         },
         "f39": {
-            "previous_tag": "f37-updates",
-            "default_release_string": "fc37",
+            "previous_tag": "f39-updates",
+            "default_release_string": "fc39",
             "config_branch": "rawhide",
             "profile_name": "rawhide"
         }
