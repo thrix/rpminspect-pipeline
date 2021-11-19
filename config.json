@@ -1,5 +1,11 @@
 {
     "profiles": {
+        "f33": {
+            "previous_tag": "f33-updates",
+            "default_release_string": "fc33",
+            "config_branch": "f33",
+            "profile_name": ""
+        },
         "f34": {
             "previous_tag": "f34-updates",
             "default_release_string": "fc34",
