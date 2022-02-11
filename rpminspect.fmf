@@ -6,7 +6,7 @@ discover:
     - name: license
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG license
-      duration: 600m
+      duration: 720m
     - name: emptyrpm
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG emptyrpm
@@ -175,6 +175,10 @@ discover:
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG unicode
       duration: 2m
+    - name: rpmdeps
+      framework: shell
+      test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG rpmdeps
+      duration: 2m
     - name: diagnostics
       framework: shell
       test: /usr/local/bin/rpminspect_runner.sh $TASK_ID $PREVIOUS_TAG diagnostics
@@ -187,7 +191,7 @@ description: |
 provision:
     how: container
     # source: https://github.com/fedora-ci/rpminspect-image
-    image: quay.io/fedoraci/rpminspect:d1a73fb
+    image: quay.io/fedoraci/rpminspect:12fb0be
 
 prepare:
     how: shell
