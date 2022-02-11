@@ -21,8 +21,8 @@
         "f36": {
             "previous_tag": "f36-updates",
             "default_release_string": "fc36",
-            "config_branch": "rawhide",
-            "profile_name": "rawhide"
+            "config_branch": "f36",
+            "profile_name": ""
         },
         "f37": {
             "previous_tag": "f37-updates",
