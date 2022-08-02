@@ -13,7 +13,7 @@ def pipelineMetadata = [
     testCategory: 'static-analysis',
     testType: 'rpminspect',
     maintainer: 'Fedora CI',
-    docs: 'https://github.com/rpminspect/rpminspect#rpminspect',
+    docs: 'https://rpminspect.readthedocs.io/en/latest/',
     contact: [
         irc: '#fedora-ci',
         email: 'ci@lists.fedoraproject.org'
